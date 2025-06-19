@@ -1,5 +1,11 @@
 ﻿namespace Programming01
 {
+    class Player
+    {
+        int nATK;
+        int nHP;
+    }
+
     internal class Program
     {
         static void Main(string[] args)
