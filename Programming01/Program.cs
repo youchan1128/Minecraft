@@ -2,8 +2,30 @@
 {
     class Player
     {
-        int nATK;
-        int nHP;
+        public int ATK;
+        public int HP;
+        public int exp;
+        public int level;
+
+        public bool Death()
+        {
+            if(HP <= 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Player(int ATK, int HP, int exp, int level)
+        {
+            this.ATK = ATK;
+            this.HP = HP;
+            this.exp = exp;
+            this.level = level;
+        }
     }
 
     internal class Program
@@ -111,30 +133,62 @@
 
         static void BattleMain()
         {
-            int playerHP = 100;
-            int playerATK = 10;
+            Player player = new Player(30, 200, 0, 1);
+            Random random = new Random();
 
-            int monsterHP = 100;
-            int monsterATK = 11;
-
-            while(true)
+            while(player.HP > 0)
             {
-                Console.WriteLine("\n플레이어 체력: {0}\n몬스터 체력: {1}", playerHP, monsterHP);
-                if (playerHP <= 0)
+                Console.WriteLine("몬스터 등장!");
+                Player monster = new Player(20, 100, 0, 0);
+                while (monster.HP > 0)
                 {
-                    Console.WriteLine("플레이어 사망");
-                    break;
+                    Console.WriteLine("남은 체력: {0}\n몬스터 체력: {1}", player.HP, monster.HP);
+                    while (true)
+                    {
+                        string act = Console.ReadLine();
+                        if (act == "공격")
+                        {
+                            int nRandom = random.Next(0, 3);
+                            if (nRandom == 0)
+                            {
+                                Console.WriteLine("크리티컬!");
+                                monster.HP -= (int)(player.ATK * 1.5f);
+                                Console.WriteLine("공격! {0}의 데미지를 입혔다.(몬스터의 남은 체력: {1})", (int)(player.ATK * 1.5f), monster.HP);
+                            }
+                            else
+                            {
+                                monster.HP -= player.ATK;
+                                Console.WriteLine("공격! {0}의 데미지를 입혔다.(몬스터의 남은 체력: {1})", player.ATK, monster.HP);
+                            }
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("'공격'을 입력하세요.");
+                        }
+                    }
+                    Console.ReadLine();
+                    if(monster.Death())
+                    {
+                        Console.WriteLine("몬스터 처치!");
+                        player.exp += 10;
+                        break;
+                    }
+                    player.HP -= monster.ATK;
+                    Console.WriteLine("몬스터의 반격! {0}의 데미지를 입었다.(남은체력: {1})", monster.ATK, player.HP);
+                    if(player.Death())
+                    {
+                        Console.WriteLine("플레이어 사망");
+                        break;
+                    }
                 }
-                monsterHP -= playerATK;
-                Console.WriteLine("\n플레이어가 공격");
-                Console.WriteLine("\n플레이어 체력: {0}\n몬스터 체력: {1}", playerHP, monsterHP);
-                if (playerHP <= 0)
+                Console.ReadLine();
+                if (player.exp == 50)
                 {
-                    Console.WriteLine("몬스터 사망");
-                    break;
+                    player.level += 1;
+                    Console.WriteLine("레벨업!(현재레벨: {0})", player.level);
+                    player.exp = 0;
                 }
-                playerHP -= monsterATK;
-                Console.WriteLine("\n몬스터가 반격");
             }
         }
     }
