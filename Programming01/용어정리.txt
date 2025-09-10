@@ -100,9 +100,33 @@ CameraTracker
 [스크립팅API]
 Start: 씬을 시작하고 나서 한번 실행하는 함수
 Update: 씬을 시작하고 나서 매 프레임마다 실행하는 함수
+LateUpdate: 씬을 시작하고 나서 매 프레임마다 업데이트 함수 뒤에 실행하는 함수
+FixedUpdate: 씬을 시작하고 나서 유니티 내에서 0.02초마다 실행하는 함수
 Awake: 씬을 시작하고 나서 가장먼저 한번 실행하는 함수
 IEnumerator: 코루틴함수를 실행시키기위한 것
 -yield return: 코드의 시간간격을 정하기위한 것
 OnTriggerEnter2D: 트리거충돌을 한 오브젝트를 이용해 충돌할 때 실행하는 함수
 OnCollisionEnter2D: 일반충돌을 한 오브젝트를 이용해 충돌할 때 실행하는 함수
 OnCollisionExit2D: 일반충돌을 한 뒤 벗어날때 실행하는 함수
+Mathf: 수학 관련 함수
+ㄴMathf.Min(a, b): a, b중 최솟값
+ㄴMathf.Max(a, b): a, b중 최댓값
+ㄴMathf.Clamp(a, min, max): a를 min과 max사이로 고정
+ㄴMathf.Floor(a): a를 내림
+ㄴMathf.Round(a): a를 반올림
+ㄴMathf.Ceil(a): a를 올림
+Vector3.Distance: 두 오브젝트 사이의 거리
+
+[자료구조]
+배열
+-고정된 개수만큼 연속된 메모리 공간을 할당
+-연속 메모리이기 때문에 특정 요소에 빠르게 접근가능
+-크기를 바꾸려면 배열 전체를 다시 할당해야함
+리스트
+-가변 배열
+ㄴlist.Add(a): 리스트 마지막에 a를 추가
+ㄴlist.Remove(a): a를 찾아서 삭제
+ㄴlist.RemoveAt(a): list[a]를 삭제
+ㄴlist.insert(a, b): list[a]에 b를 추가
+ㄴint index = list.IndexOf(a): index = a의 순서
+ㄴbool a = list.Contains(b): b가 리스트에 있는지 여부 확인
