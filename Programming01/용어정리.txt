@@ -130,3 +130,7 @@ Vector3.Distance: 두 오브젝트 사이의 거리
 ㄴlist.insert(a, b): list[a]에 b를 추가
 ㄴint index = list.IndexOf(a): index = a의 순서
 ㄴbool a = list.Contains(b): b가 리스트에 있는지 여부 확인
+-Dictionary<string, string> a;
+ㄴa.Add("aaa", "010"): aaa라는 곳에 010이라는 값을 추가
+ㄴstring num = a["aaa"]: num = "aaa"의 값
+ㄴa.TryGetValue("aaa", out b): b에 "aaa"라는곳의 값을 추가
