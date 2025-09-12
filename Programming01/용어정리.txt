@@ -114,17 +114,17 @@ Mathf: 수학 관련 함수
 ㄴMathf.Clamp(a, min, max): a를 min과 max사이로 고정
 ㄴMathf.Floor(a): a를 내림
 ㄴMathf.Round(a): a를 반올림
+-연속 메모리이기 때문에 특정 요소에 빠르게 접근가능
+-크기를 바꾸려면 배열 전체를 다시 할당해야함
+리스트
+-가변 배열
+ㄴlist.Add(a): 리스트 마지막에 a를 추가
 ㄴMathf.Ceil(a): a를 올림
 Vector3.Distance: 두 오브젝트 사이의 거리
 
 [자료구조]
 배열
 -고정된 개수만큼 연속된 메모리 공간을 할당
--연속 메모리이기 때문에 특정 요소에 빠르게 접근가능
--크기를 바꾸려면 배열 전체를 다시 할당해야함
-리스트
--가변 배열
-ㄴlist.Add(a): 리스트 마지막에 a를 추가
 ㄴlist.Remove(a): a를 찾아서 삭제
 ㄴlist.RemoveAt(a): list[a]를 삭제
 ㄴlist.insert(a, b): list[a]에 b를 추가
@@ -134,3 +134,17 @@ Vector3.Distance: 두 오브젝트 사이의 거리
 ㄴa.Add("aaa", "010"): aaa라는 곳에 010이라는 값을 추가
 ㄴstring num = a["aaa"]: num = "aaa"의 값
 ㄴa.TryGetValue("aaa", out b): b에 "aaa"라는곳의 값을 추가
+스택
+-가장 나중에 넣은 데이터를 가장 먼저 사용(Last In First Out(LIFO))
+-예시: 웹 브라우저에서 뒤로가기를 누르면 이전 페이지로 이동
+-예시: 모바일 게임의 UI가 여러층으로 열려있을 때 X버튼을 누르면 최상위의 UI가 닫힘
+ㄴstacks.Push(a): 스택에 a추가
+ㄴstacks.Peek(): 스택에서 가장 마지막에 추가한 값을 호출
+ㄴstacks.Pop(): 스택에서 가장 마지막에 추가한 값 호출과 함께 스택에서 삭제
+큐
+-가장 처음에 넣은 데이터를 가장 먼저 사용(First In First Out(FIFO))
+-예시: 서버와 클라이언트가 주고 받는 네트워크 패킷
+-예시: 윈도우 운영체제의 메시지
+ㄴqueue.Enqueue(a): 큐에 a를 추가
+ㄴqueue.Peek(): 큐에서 가장 처음에 추가한 값을 호출
+ㄴqueue.Dequeue(): 큐에서 가장 처음에 추가한 값을 호출과 함께 큐에서 삭제
