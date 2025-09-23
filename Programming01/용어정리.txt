@@ -121,6 +121,7 @@ Mathf: 수학 관련 함수
 ㄴMathf.Clamp(a, min, max): a를 min과 max사이로 고정
 ㄴMathf.Floor(a): a를 내림
 ㄴMathf.Round(a): a를 반올림
+ㄴMathf.Atan2: 수평 축과 (x, y)벡터 사이의 각도를 구함
 -연속 메모리이기 때문에 특정 요소에 빠르게 접근가능
 -크기를 바꾸려면 배열 전체를 다시 할당해야함
 리스트
